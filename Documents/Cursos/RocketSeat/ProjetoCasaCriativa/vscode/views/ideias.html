@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ideias - Casa Criativa</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body id="page-ideas">
+    <div id="container">
+      <header>
+        <img src="/logo.png" alt="Imagem da Logomarca" />
+        <nav>
+          <li><a href="/" onclick="onOff()">Inicio</a></li>
+          <li><a href="#" onclick="onOff()">Nova Ideia</a></li>
+        </nav>
+      </header>
+      <section id="title"></section>
+      <p>em exibição</p>
+      <h1>Ideias</h1>
+      <main>
+        <section id="ideas">
+          {% for idea in ideas %}
+          <div class="idea">
+            <img src="{{idea.image}}" alt="Imagem Curso de {{idea.title}}" />
+            <div class="content">
+              <h3>{{idea.title}}</h3>
+              <p>{{idea.category}}</p>
+              <div class="description">
+                {{idea.description}}
+              </div>
+              <a href="{{idea.link}}" target="_blank">Ir para a Ideia</a>
+            </div>
+          </div>
+          {%endfor %}
+        </section>
+      </main>
+      <footer>Com <a href="http://rocketseat.com.br">Rocketseat</a></footer>
+    </div>
+
+    {% include "modal.html" %}
+
+    <script src="/scripts.js"></script>
+  </body>
+</html>
